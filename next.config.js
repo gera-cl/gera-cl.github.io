@@ -3,7 +3,7 @@ const nextConfig = {
     output: 'export',
     images: {
         loader: 'cloudinary',
-        loaderFile: 'https://res.cloudinary.com/dptvuhhed/image/upload/',
+        path: 'https://res.cloudinary.com/dptvuhhed/image/upload/',
       }
 }
 
