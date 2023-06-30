@@ -1,10 +1,10 @@
 import './globals.css'
 import { ReactNode } from 'react'
-import { Merriweather } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import Navbar from '@/components/navbar'
 import Providers from './providers'
 
-const merriweather = Merriweather({ style: 'normal', weight: '400', subsets: ['latin'] })
+const font = Montserrat({ style: 'normal', subsets: ['latin'] })
 
 export const metadata = {
   title: 'GH Portfolio',
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={'bg-slate-200 dark:bg-slate-900 ' + merriweather.className} >
+      <body className={'bg-slate-200 dark:bg-slate-900 ' + font.className} >
         <Providers>
           <Navbar />
           <main className="relative">

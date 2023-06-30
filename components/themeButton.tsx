@@ -48,7 +48,7 @@ const ThemeButton = () => {
                                         'cursor-pointer flex px-4 py-2 text-sm'
                                     )}
                                 >
-                                    <div className='h-5 w-5 mr-3'>{item.icon}</div>
+                                    <div className='h-5 w-5 mr-2'>{item.icon}</div>
                                     {item.name}
                                 </a>
                             )}

@@ -20,13 +20,13 @@ export default function About() {
                 <div className='flex bg-slate-300 dark:bg-slate-800 h-[250px] w-[250px] 2xl:w-[250px] 2xl:h-[250px] rounded-full overflow-hidden'>
                     <Image
                         alt="hero image"
-                        src="/profile_photo.png"
+                        src="/profile_photo_n7zbbz.png"
                         width={240}
                         height={240}
-                        style={{ objectFit: 'none', objectPosition: '10% 30%' }}
+                        style={{ objectFit: 'none', objectPosition: '80% 25%' }}
                     />
                 </div>
-                <h3 className="mt-6 mb-1 text-4xl font-bold dark:text-white">Germán Hernández</h3>
+                <h3 className="mt-6 mb-1 text-4xl text-center font-semibold dark:text-white">Germán Hernández</h3>
                 <p className="mb-4 text-[#7B7B7B]">Quality Assurance Engineer</p>
                 <div className="flex space-x-3">
                     <ContactLink href='https://github.com/' textColor='[#24292f]'>
