@@ -2,8 +2,8 @@
 const nextConfig = {
     output: 'export',
     images: {
-        loader: 'custom',
-        loaderFile: './app/image.ts',
+        loader: 'cloudinary',
+        loaderFile: 'https://res.cloudinary.com/dptvuhhed/image/upload/',
       }
 }
 
