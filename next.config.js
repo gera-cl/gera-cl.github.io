@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    basePath: "",
     images: {
+      loader: 'custom',
+      loaderFile: './app/image.ts',
       remotePatterns: [
         {
           protocol: 'https',

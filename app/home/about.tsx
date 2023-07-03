@@ -1,6 +1,4 @@
-'use client'
-
-import Image, { ImageLoaderProps } from 'next/image'
+import Image from 'next/image'
 import { ReactNode } from 'react';
 
 function ContactLink(props: { href: string, textColor: string, children: ReactNode }) {
@@ -15,11 +13,6 @@ function ContactLink(props: { href: string, textColor: string, children: ReactNo
     )
 }
 
-const cloudinaryLoader = (props: ImageLoaderProps) => {
-    const params = ['f_auto', 'c_limit', `w_${props.width}`, `q_${props.quality || 'auto'}`]
-    return `https://res.cloudinary.com/dptvuhhed/image/upload/${params.join(',')}${props.src}`
-}
-
 export default function About() {
     return (
         <section id="about" className="py-8">
@@ -27,7 +20,6 @@ export default function About() {
                 <div className='flex bg-slate-300 dark:bg-slate-800 h-[250px] w-[250px] 2xl:w-[250px] 2xl:h-[250px] rounded-full overflow-hidden'>
                     <Image
                         alt="hero image"
-                        loader={cloudinaryLoader}
                         src="/profile_photo_n7zbbz.png"
                         width={240}
                         height={240}
