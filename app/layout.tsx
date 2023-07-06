@@ -17,13 +17,15 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={'bg-slate-200 dark:bg-slate-900 ' + font.className} >
+    <html className='h-full' lang="en" suppressHydrationWarning>
+      <body className={'h-full bg-slate-200 dark:bg-slate-900 ' + font.className} >
         <Providers>
-          <Navbar />
-          <main className="relative">
-            {children}
-          </main>
+          <div className="min-h-full">
+            <Navbar />
+            <main className="relative">
+              {children}
+            </main>
+          </div>
         </Providers>
       </body>
     </html>
