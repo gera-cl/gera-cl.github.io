@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html className='h-full' lang="en" suppressHydrationWarning>
-      <body className={'h-full bg-slate-200 dark:bg-slate-900 ' + font.className} >
+      <body className={'h-full bg-slate-200 dark:bg-slate-900 ' + font.className} suppressHydrationWarning>
         <Providers>
           <div className="min-h-full">
             <Navbar />

@@ -1,3 +1,5 @@
+'use client'
+
 import Resume from "./home/resume";
 import About from "./home/about";
 import Portfolio from "./home/portfolio";

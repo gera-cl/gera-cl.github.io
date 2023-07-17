@@ -1,26 +1,24 @@
 'use client';
 
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import ThemeButton from './themeButton';
+import Link from 'next/link';
+import *  as Scroll from 'react-scroll'
 
-let navigation = [
-  { name: 'About', href: '#about', current: true },
-  { name: 'Resume', href: '#resume', current: false },
-  { name: 'Portfolio', href: '#portfolio', current: false },
-  { name: 'Contact', href: '#contact', current: false },
+const navigation = [
+  { name: 'About', href: '#about' },
+  { name: 'Resume', href: '#resume' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Contact', href: '#contact' },
 ]
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 bg-slate-100 dark:bg-slate-950">
+    <header className="fixed inset-x-0 top-0 z-50 bg-slate-100 dark:bg-slate-950">
       <nav className="flex items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 p-3" aria-label="Global">
         <div className="flex">
           <a href="#" className="-m-1.5 p-1.5">
@@ -44,72 +42,97 @@ export default function Navbar() {
         </div>
         <div className="hidden ml-8 lg:flex lg:gap-x-3">
           {navigation.map((item) => (
-            <a
+            <Scroll.Link
               key={item.name}
-              href={item.href}
-              className={classNames(
-                item.current
-                  ? 'bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-white font-bold'
-                  : 'text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-900 dark:hover:text-white',
-                'rounded-md px-4 py-2 text-sm font-medium'
-              )}
-              aria-current={item.current ? 'page' : undefined}
+              activeClass='bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-white font-bold'
+              className='cursor-pointer text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-900 dark:hover:text-white rounded-md px-4 py-2 text-sm font-medium'
+              to={item.name.toLocaleLowerCase()}
+              smooth
+              spy
+              hashSpy
+              offset={-50}
+              duration={600}
+              spyThrottle={100}
             >
               {item.name}
-            </a>
+            </Scroll.Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
           <ThemeButton></ThemeButton>
         </div>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-5/6 overflow-y-auto bg-slate-100 dark:bg-slate-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 drop-shadow-lg">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+      <Transition show={mobileMenuOpen} as={Fragment}>
+        <Dialog className="fixed inset-0 z-50 overflow-hidden lg:hidden" onClose={() => setMobileMenuOpen(false)}>
+          <Transition.Child
+            enter="transition-opacity ease-linear duration-150"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-150"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="absolute inset-0 bg-slate-900/25 backdrop-blur-sm" />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
+            <Dialog.Panel className="fixed inset-y-0 right-0 w-5/6 overflow-y-auto bg-slate-100 dark:bg-slate-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 drop-shadow-lg">
+              <div className="flex items-center justify-between">
+                <a href="#" className="-m-1.5 p-1.5">
+                  <span className="sr-only">Your Company</span>
+                  <img
+                    className="h-8 w-auto"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt=""
+                  />
+                </a>
+                <button
+                  type="button"
+                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
               </div>
-              <div className="py-6">
-                <span className='-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 dark:text-white'>
-                  Switch theme
-                  <div className='float-right'>
-                    <ThemeButton />
+              <div className="mt-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <div className="space-y-2 py-6">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => {
+                          setMobileMenuOpen(false)
+                        }}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white"
+                        replace
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
                   </div>
-                </span>
+                  <div className="py-6">
+                    <span className='-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 dark:text-white'>
+                      Switch theme
+                      <div className='float-right'>
+                        <ThemeButton />
+                      </div>
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+            </Dialog.Panel>
+          </Transition.Child>
+        </Dialog>
+      </Transition>
     </header>
   );
 }

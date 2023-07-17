@@ -15,15 +15,16 @@ function ContactLink(props: { href: string, textColor: string, children: ReactNo
 
 export default function About() {
     return (
-        <section id="about" className="py-8">
-            <div className="flex flex-col items-center h-[100vh] md:h-[90vh] lg:h-[80vh] xl:h-[71vh] justify-center aos-init aos-animate" data-aos="fade">
-                <div className='flex bg-slate-300 dark:bg-slate-800 h-[250px] w-[250px] 2xl:w-[250px] 2xl:h-[250px] rounded-full overflow-hidden'>
+        <section id="about" className="pt-14 sm:pt-14 lg:pt-[60px] pb-20">
+            <div className="flex flex-col items-center justify-center min-h-[90vh] aos-init aos-animate" data-aos="fade">
+                <div className='flex bg-slate-300 dark:bg-slate-800 min-h-[250px] h-[250px] w-[250px] 2xl:w-[250px] 2xl:h-[250px] rounded-full overflow-hidden'>
                     <Image
                         alt="hero image"
                         src="/profile_photo_n7zbbz.png"
                         width={240}
                         height={240}
                         style={{ objectFit: 'none', objectPosition: '25% 25%' }}
+                        priority
                     />
                 </div>
                 <h3 className="mt-6 mb-1 text-4xl text-center font-semibold dark:text-white">Germán Hernández</h3>
