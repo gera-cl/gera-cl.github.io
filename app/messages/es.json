@@ -1,0 +1,9 @@
+{
+    "Navbar": {
+        "home" : "Inicio",
+        "about" : "Sobre mi",
+        "resume" : "Currículum",
+        "portfolio" : "Portafolio",
+        "contact" : "Contacto"
+    }
+}

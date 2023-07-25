@@ -1,17 +1,7 @@
-'use client'
+import { redirect } from 'next/navigation'
+import * as localization from './localization'
 
-import Resume from "./home/resume";
-import About from "./home/about";
-import Portfolio from "./home/portfolio";
-import Contact from "./home/contact";
-
-export default function Home() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-between">
-      <About />
-      <Resume />
-      <Portfolio />
-      <Contact />
-    </div>
-  )
+// Redirect the user to the default locale when the app root is requested
+export default function RootPage() {
+  redirect(`/${localization.defaultLocale}`);
 }

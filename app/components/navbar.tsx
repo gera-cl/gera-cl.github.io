@@ -3,19 +3,23 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import ThemeButton from './themeButton';
-import Link from 'next/link';
+import ThemeButton from './themeButton'
+import Link from 'next/link'
 import *  as Scroll from 'react-scroll'
+import { useTranslations } from 'next-intl'
+import SwitchLocale from './switchLocale';
 
 const navigation = [
-  { name: 'About', href: '#about' },
-  { name: 'Resume', href: '#resume' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' },
+  { id: 'home' },
+  { id: 'about' },
+  { id: 'resume' },
+  { id: 'portfolio' },
+  { id: 'contact' },
 ]
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const t = useTranslations("Navbar");
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-slate-100 dark:bg-slate-950">
@@ -43,10 +47,10 @@ export default function Navbar() {
         <div className="hidden ml-8 lg:flex lg:gap-x-3">
           {navigation.map((item) => (
             <Scroll.Link
-              key={item.name}
+              key={item.id}
               activeClass='bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-white font-bold'
               className='cursor-pointer text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-900 dark:hover:text-white rounded-md px-4 py-2 text-sm font-medium'
-              to={item.name.toLocaleLowerCase()}
+              to={item.id}
               smooth
               spy
               hashSpy
@@ -54,12 +58,13 @@ export default function Navbar() {
               duration={600}
               spyThrottle={100}
             >
-              {item.name}
+              {t(item.id)}
             </Scroll.Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-          <ThemeButton></ThemeButton>
+          <SwitchLocale />
+          <ThemeButton />
         </div>
       </nav>
       <Transition show={mobileMenuOpen} as={Fragment}>
@@ -107,15 +112,15 @@ export default function Navbar() {
                   <div className="space-y-2 py-6">
                     {navigation.map((item) => (
                       <Link
-                        key={item.name}
-                        href={item.href}
+                        key={item.id}
+                        href={'#' + item.id}
                         onClick={() => {
                           setMobileMenuOpen(false)
                         }}
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white"
                         replace
                       >
-                        {item.name}
+                        {t(item.id)}
                       </Link>
                     ))}
                   </div>
