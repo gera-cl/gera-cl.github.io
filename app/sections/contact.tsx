@@ -1,4 +1,4 @@
-import MyBreakLine from "../../components/breakLines";
+import MyBreakLine from "../components/breakLines";
 
 export default function Contact() {
     return (

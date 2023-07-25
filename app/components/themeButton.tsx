@@ -19,9 +19,9 @@ const ThemeButton = () => {
     ];
 
     return (
-        <Menu as="div" className="relative ml-3 ">
+        <Menu as="div" className="relative">
             <div>
-                <Menu.Button className="flex max-items-center rounded-full mx-4">
+                <Menu.Button className="flex max-items-center rounded-full mx-2 px-1 py-1 hover:bg-slate-200 dark:hover:bg-slate-900">
                     <span className="sr-only">Open user menu</span>
                     <span className="dark:hidden"><SunIcon className="w-6 h-6 fill-sky-400/20 text-sky-500"></SunIcon></span>
                     <span className="hidden dark:inline"><MoonIcon className="w-6 h-6 fill-sky-400/20 text-sky-500"></MoonIcon></span>
