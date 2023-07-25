@@ -4,6 +4,15 @@
         "about" : "Sobre mim",
         "resume" : "Currículo",
         "portfolio" : "Portfolio",
-        "contact" : "Contato"
+        "contact" : "Contato",
+        "Theme": {
+            "switch": "Mudar o modo",
+            "dark": "Escuro",
+            "light": "Claro",
+            "system": "Sistema"
+        },
+        "Language": {
+            "switch": "Linguagem"
+        }
     }
 }

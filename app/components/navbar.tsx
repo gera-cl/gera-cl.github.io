@@ -1,12 +1,12 @@
 'use client';
 
 import { Fragment, useState } from 'react'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import ThemeButton from './themeButton'
-import Link from 'next/link'
 import *  as Scroll from 'react-scroll'
-import { useTranslations } from 'next-intl'
+import ThemeButton from './themeButton'
 import SwitchLocale from './switchLocale';
 
 const navigation = [
@@ -126,9 +126,15 @@ export default function Navbar() {
                   </div>
                   <div className="py-6">
                     <span className='-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 dark:text-white'>
-                      Switch theme
+                      {t('Theme.switch')}
                       <div className='float-right'>
                         <ThemeButton />
+                      </div>
+                    </span>
+                    <span className='-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 dark:text-white'>
+                      {t('Language.switch')}
+                      <div className='float-right'>
+                        <SwitchLocale />
                       </div>
                     </span>
                   </div>

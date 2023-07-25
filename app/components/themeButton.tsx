@@ -4,18 +4,20 @@ import React, { Fragment } from 'react'
 import { useTheme } from "next-themes";
 import { Menu, Transition } from '@headlessui/react';
 import { ComputerDesktopIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { useTranslations } from 'next-intl'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
 const ThemeButton = () => {
+    const t = useTranslations("Navbar.Theme");
     const { systemTheme, theme, setTheme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
     const themes = [
-        { 'name': 'Light', 'action': () => setTheme('light'), 'icon': <SunIcon></SunIcon> },
-        { 'name': 'Dark', 'action': () => setTheme('dark'), 'icon': <MoonIcon></MoonIcon> },
-        { 'name': 'System', 'action': () => setTheme('system'), 'icon': <ComputerDesktopIcon></ComputerDesktopIcon> }
+        { 'name': t('light'), 'action': () => setTheme('light'), 'icon': <SunIcon></SunIcon> },
+        { 'name': t('dark'), 'action': () => setTheme('dark'), 'icon': <MoonIcon></MoonIcon> },
+        { 'name': t('system'), 'action': () => setTheme('system'), 'icon': <ComputerDesktopIcon></ComputerDesktopIcon> }
     ];
 
     return (

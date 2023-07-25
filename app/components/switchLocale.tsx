@@ -18,7 +18,7 @@ export default function SwitchLocale() {
     return (
         <Menu as="div" className="relative">
             <div>
-                <Menu.Button className="flex max-items-center rounded-full mx-2 px-3 py-1 hover:bg-slate-200 dark:hover:bg-slate-900 hover:font-medium">
+                <Menu.Button className="flex max-items-center rounded-full mx-2 px-3 py-1 hover:bg-slate-200 dark:hover:bg-slate-900">
                     <span><GlobeAltIcon className="w-6 h-6 fill-sky-400/20 text-sky-500" /></span>
                     <span className='ml-1 text-sm pt-[2px]'>{locale.toUpperCase()}</span>
                 </Menu.Button>
@@ -38,7 +38,7 @@ export default function SwitchLocale() {
                             {({ active }) => (
                                 <a
                                     onClick={() => {
-                                        router.push(`/${window.location.hash}`, { locale: item.id });
+                                        router.replace(`/${window.location.hash}`, { locale: item.id });
                                     }}
                                     className={classNames(
                                         item.id === locale ? 'text-sky-500 font-semibold' : '',
