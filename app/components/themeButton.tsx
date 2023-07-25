@@ -15,9 +15,9 @@ const ThemeButton = () => {
     const { systemTheme, theme, setTheme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
     const themes = [
-        { 'name': t('light'), 'action': () => setTheme('light'), 'icon': <SunIcon></SunIcon> },
-        { 'name': t('dark'), 'action': () => setTheme('dark'), 'icon': <MoonIcon></MoonIcon> },
-        { 'name': t('system'), 'action': () => setTheme('system'), 'icon': <ComputerDesktopIcon></ComputerDesktopIcon> }
+        { 'id': 'light', 'icon': <SunIcon></SunIcon> },
+        { 'id': 'dark', 'icon': <MoonIcon></MoonIcon> },
+        { 'id': 'system', 'icon': <ComputerDesktopIcon></ComputerDesktopIcon> }
     ];
 
     return (
@@ -40,18 +40,18 @@ const ThemeButton = () => {
             >
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-slate-100 dark:bg-slate-800 text-black dark:text-white">
                     {themes.map((item) => (
-                        <Menu.Item key={item.name}>
+                        <Menu.Item key={item.id}>
                             {({ active }) => (
                                 <a
-                                    onClick={item.action}
+                                    onClick={() => setTheme(item.id)}
                                     className={classNames(
-                                        theme == item.name.toLocaleLowerCase() ? 'text-sky-500 font-semibold' : '',
+                                        theme === item.id ? 'text-sky-500 font-semibold' : '',
                                         active ? 'bg-gray-200 dark:bg-gray-600' : '',
                                         'cursor-pointer flex px-4 py-2 text-sm'
                                     )}
                                 >
                                     <div className='h-5 w-5 mr-2'>{item.icon}</div>
-                                    {item.name}
+                                    {t(item.id)}
                                 </a>
                             )}
                         </Menu.Item>

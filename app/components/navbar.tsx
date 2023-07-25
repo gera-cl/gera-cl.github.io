@@ -1,8 +1,8 @@
 'use client';
 
 import { Fragment, useState } from 'react'
-import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import Link from 'next-intl/link';
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import *  as Scroll from 'react-scroll'
@@ -113,7 +113,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link
                         key={item.id}
-                        href={'#' + item.id}
+                        href={`/#${item.id}`}
                         onClick={() => {
                           setMobileMenuOpen(false)
                         }}
