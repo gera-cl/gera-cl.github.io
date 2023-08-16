@@ -3,7 +3,7 @@
         "home" : "Home",
         "about" : "Sobre mim",
         "resume" : "Currículo",
-        "portfolio" : "Portfolio",
+        "portfolio" : "Portfólio",
         "contact" : "Contato",
         "Theme": {
             "switch": "Mudar o modo",
@@ -14,5 +14,13 @@
         "Language": {
             "switch": "Linguagem"
         }
+    },
+    "Home": {
+        "headline": "Engenheiro de Qualidade de Software",
+        "download-cv": "Baixar Currículo"
+    },
+    "About": {
+        "question": "Quem sou?",
+        "profile-info": "foo"
     }
 }

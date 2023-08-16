@@ -7,7 +7,6 @@ export const locales = [
     { id: 'pt', name: 'português' },
 ]
 
-// If this locale is matched, pathnames work without a prefix (e.g. `/about`)
 export const defaultLocale = 'en'
 
 export async function getMessages(locale: string) {
@@ -17,7 +16,7 @@ export async function getMessages(locale: string) {
 
     let messages
     try {
-        messages = (await import(`./messages/${locale}.json`)).default
+        messages = (await import(`../messages/${locale}.json`)).default
         return messages
     } catch (error) {
         redirect(`/${defaultLocale}`)

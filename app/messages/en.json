@@ -14,5 +14,13 @@
         "Language": {
             "switch": "Language"
         }
+    },
+    "Home": {
+        "headline": "Software Quality Assurance Engineer",
+        "download-cv": "Download Resume"
+    },
+    "About": {
+        "question": "Who am I?",
+        "profile-info": "As a Quality Engineer with a strong background in software quality, I bring extensive expertise in both test automation and performance testing. I collaborate closely with development teams and stakeholders to create and execute automated test scripts, enabling thorough software evaluation. My meticulous approach to testing and result analysis has effectively uncovered and reported defects, directly contributing to enhanced software quality and user experience. Furthermore, my proficiency in performance testing allows me to design and implement test plans ensuring optimal software functionality and stability across varying traffic levels. Through issue identification and resolution, I consistently enhance software efficiency and scalability. As a Quality Engineer, my goal is to ensure products meet the highest quality standards and fulfill user needs."
     }
 }

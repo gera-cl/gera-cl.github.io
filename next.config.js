@@ -4,7 +4,7 @@ const nextConfig = {
     basePath: "",
     images: {
       loader: 'custom',
-      loaderFile: './app/image.ts',
+      loaderFile: './app/util/image.ts',
       remotePatterns: [
         {
           protocol: 'https',

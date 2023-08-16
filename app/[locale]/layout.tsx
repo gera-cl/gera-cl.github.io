@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { Montserrat } from 'next/font/google'
 import Navbar from '@/app/components/navbar'
 import Providers from '../providers'
-import * as localization from '../localization'
+import * as localization from '../util/localization'
 
 const font = Montserrat({ style: 'normal', subsets: ['latin'] })
 
