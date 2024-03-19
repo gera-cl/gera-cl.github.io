@@ -1,3 +1,5 @@
+import { img_loader_url } from './constants'
+
 export default function cloudinaryLoader({
   src,
   width,
@@ -8,7 +10,7 @@ export default function cloudinaryLoader({
   quality?: number
 }) {
   const params = ['f_auto', 'c_limit', `w_${width}`, `q_${quality || 'auto'}`]
-  return `https://res.cloudinary.com/dptvuhhed/image/upload/${params.join(
+  return `${img_loader_url}${params.join(
     ','
   )}${src}`
 }

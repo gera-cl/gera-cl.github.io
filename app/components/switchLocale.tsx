@@ -5,7 +5,7 @@ import { useLocale } from 'next-intl'
 import { useRouter } from 'next-intl/client'
 import { Menu, Transition } from '@headlessui/react'
 import { GlobeAltIcon } from '@heroicons/react/24/outline'
-import { locales } from '../localization'
+import { locales } from '../util/localization'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')

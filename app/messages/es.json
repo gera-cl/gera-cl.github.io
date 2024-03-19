@@ -14,5 +14,13 @@
         "Language": {
             "switch": "Idioma"
         }
+    },
+    "Home": {
+        "headline": "Ingeniero de Calidad de Software",
+        "download-cv": "Descargar CV"
+    },
+    "About": {
+        "question": "¿Quién soy?",
+        "profile-info": "Como Ingeniero de Calidad de Software con un sólido conocimiento en calidad de software, cuento con una amplia experiencia tanto en automatización de pruebas como en pruebas de rendimiento. Colaboro estrechamente con los equipos de desarrollo y las partes interesadas para crear y ejecutar scripts de pruebas automatizados que permiten una evaluación minuciosa del software. Mi enfoque meticuloso en la prueba y análisis de resultados me ha permitido identificar y reportar defectos de manera efectiva, lo que contribuye directamente a mejorar la calidad del software y la experiencia del usuario. Además, mi experiencia en pruebas de rendimiento me permite diseñar y ejecutar planes de pruebas que garantizan la funcionalidad y estabilidad óptimas del software bajo diferentes niveles de tráfico. A través de la identificación y resolución de problemas, logro mejorar la eficiencia y escalabilidad del software de manera efectiva. Como Quality Engineer, mi objetivo es asegurar que los productos cumplan con los más altos estándares de calidad y satisfagan las necesidades del usuario."
     }
 }
